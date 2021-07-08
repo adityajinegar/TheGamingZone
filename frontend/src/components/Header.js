@@ -1,17 +1,9 @@
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Container,
-} from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Header = () => {
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <Navbar.Brand href='/'>The Gaming Zone</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

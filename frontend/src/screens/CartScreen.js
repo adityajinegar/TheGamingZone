@@ -33,6 +33,10 @@ const CartScreen = ({ match, location, history }) => {
     console.log('remove');
   };
 
+  const checkoutHandler = () => {
+    history.push('/login?redirect=shipping');
+  };
+
   return (
     <Row>
       <Col md={8}>
@@ -90,8 +94,39 @@ const CartScreen = ({ match, location, history }) => {
           </ListGroup>
         )}
       </Col>
-      <Col md={2}></Col>
-      <Col md={2}></Col>
+      <Col md={4}>
+        <Card>
+          <ListGroup variant='flush'>
+            <ListGroup.Item>
+              <h2>
+                Subtotal (
+                {cartItems.reduce(
+                  (accumulator, item) => accumulator + item.qty,
+                  0
+                )}
+                ) items
+              </h2>
+              $
+              {cartItems
+                .reduce(
+                  (accumulator, item) => accumulator + item.qty * item.price,
+                  0
+                )
+                .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item className='d-grid gap-2'>
+              <Button
+                variant='outline-dark'
+                block
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed To Checkout
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
+        </Card>
+      </Col>
     </Row>
   );
 };

@@ -106,7 +106,7 @@ const ProductScreen = ({ history, match }) => {
                 )}
 
                 <ListGroup.Item>
-                  <Row>
+                  <Row className='d-grid gap-2'>
                     <Button
                       onClick={addToCartHandler}
                       variant='outline-dark'

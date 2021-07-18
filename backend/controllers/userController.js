@@ -5,10 +5,10 @@ import User from '../models/userModel.js';
 // @route  POST /api/users/login
 // @access Public
 
-consr authUser = asyncHandler( async ( req, res ) => {
-    const { email, password } = req.body
-    
-    res.send(email, password)
-} );
+const authUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
-export {authUser}
+  res.send({ email, password });
+});
+
+export { authUser };

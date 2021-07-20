@@ -20,7 +20,7 @@ const cartItemsFromStorage = localStorage.getItem('cartItems')
   : [];
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
-  ? localStorage.getItem('userInfo')
+  ? localStorage.getItem('userInfo').name
   : null;
 
 const initialState = {

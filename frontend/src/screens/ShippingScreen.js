@@ -9,6 +9,10 @@ const ShippingScreen = ({ history }) => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <FormContainer>
       <h1>Shipping</h1>
@@ -57,7 +61,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type='submit' variant='outline-dark'>
+        <Button type='submit' variant='outline-dark' className='my-3'>
           Continue
         </Button>
       </Form>

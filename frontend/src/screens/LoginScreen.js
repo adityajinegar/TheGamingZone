@@ -55,21 +55,16 @@ const LoginScreen = ({ location, history }) => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-      </Form>
 
-      <Button
-        type='submit'
-        variant='outline-dark'
-        className='my-3'
-        onClick={submitHandler}
-      >
-        Sign In
-      </Button>
+        <Button type='submit' variant='outline-dark' className='my-3'>
+          Sign In
+        </Button>
+      </Form>
 
       <Row className='py-3'>
         <Col>
           New Customer?
-          <Link to={redirect ? `/register?redirect=${redirect}` : `/register`}>
+          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
             Register
           </Link>
         </Col>

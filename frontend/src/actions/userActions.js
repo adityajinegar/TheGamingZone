@@ -70,7 +70,7 @@ export const register = (name, email, password) => async (dispatch) => {
     );
 
     dispatch({
-      type: USER_LOGIN_SUCCESS,
+      type: USER_REGISTER_SUCCESS,
       payload: data,
     });
 

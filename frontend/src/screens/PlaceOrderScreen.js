@@ -8,6 +8,23 @@ import CheckoutSteps from '../components/CheckoutSteps';
 const PlaceOrderScreen = () => {
   const cart = useSelector((state) => state.cart);
 
+  // CALCULATE PRICES
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+  cart.itemPrice = addDecimals(
+    cart.cartItems.reduce(
+      (accumulator, item) => accumulator + item.price * item.qty,
+      0
+    )
+  );
+  cart.shippingPrice = addDecimals(cart.itemPrice > 100 ? 0 : 100);
+  cart.taxPrice = addDecimals(Number((0.13 * cart.itemPrice).toFixed(2)));
+  cart.totalPrice = (
+    Number(cart.itemPrice) +
+    Number(cart.shippingPrice) +
+    Number(cart.taxPrice)
+  ).toFixed(2);
   const placeOrderHandler = () => {
     console.log('order');
   };

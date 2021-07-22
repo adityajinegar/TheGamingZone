@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { createOrder, getOrderDetails } from '../actions/orderActions';
+import { getOrderDetails } from '../actions/orderActions';
 
 const OrderScreen = ({ match }) => {
   const orderId = match.params.id;
@@ -45,7 +45,7 @@ const OrderScreen = ({ match }) => {
 
             <ListGroup.Item>
               <h2>Order Items</h2>
-              {order.orderItems.cartItems.length === 0 ? (
+              {order.orderItems.length === 0 ? (
                 <Message>Order is empty</Message>
               ) : (
                 <ListGroup variant='flush'>

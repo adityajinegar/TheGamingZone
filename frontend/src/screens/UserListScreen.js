@@ -44,7 +44,7 @@ const UserListScreen = () => {
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>
-                  <a href={`mailto:${user.email}`}></a>
+                  <a href={`mailto:${user.email}`}>{user.email}</a>
                   {user.email}
                 </td>
                 <td>
@@ -55,7 +55,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/user/${user._id}/edit`}>
+                  <LinkContainer to={`/users/${user._id}/edit`}>
                     <Button variant='light' size='sm'>
                       <i className='fas fa-edit'></i>
                     </Button>

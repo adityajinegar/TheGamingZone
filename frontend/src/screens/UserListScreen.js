@@ -6,15 +6,22 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listUsers } from '../actions/userActions';
 
-const UserListScreen = () => {
+const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   const userList = useSelector((state) => state.userList);
   const { loading, error, users } = userList;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   useEffect(() => {
-    dispatch(listUsers());
-  }, [dispatch]);
+    if (userInfo && userInfo.isAdmin) {
+      dispatch(listUsers());
+    } else {
+      history.push('/login');
+    }
+  }, [dispatch, userInfo, history]);
 
   const deleteHandler = (id) => {
     console.log('delete');
@@ -28,7 +35,7 @@ const UserListScreen = () => {
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <Table striped bordered hover responsive>
+        <Table striped bordered hover responsive size='sm'>
           <thead>
             <tr>
               <th>ID</th>
@@ -45,7 +52,6 @@ const UserListScreen = () => {
                 <td>{user.name}</td>
                 <td>
                   <a href={`mailto:${user.email}`}>{user.email}</a>
-                  {user.email}
                 </td>
                 <td>
                   {user.isAdmin ? (

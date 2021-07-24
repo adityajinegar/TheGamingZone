@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +15,10 @@ const UserListScreen = () => {
   useEffect(() => {
     dispatch(listUsers());
   }, [dispatch]);
+
+  const deleteHandler = (id) => {
+    console.log('delete');
+  };
 
   return (
     <>

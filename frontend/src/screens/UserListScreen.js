@@ -50,6 +50,20 @@ const UserListScreen = () => {
                     <i className='fas fa-times' style={{ color: 'red' }}></i>
                   )}
                 </td>
+                <td>
+                  <LinkContainer to={`/user/${user._id}/edit`}>
+                    <Button variant='light' size='sm'>
+                      <i className='fas fa-edit'></i>
+                    </Button>
+                  </LinkContainer>
+                  <Button
+                    variant='danger'
+                    size='sm'
+                    onClick={() => deleteHandler(user._id)}
+                  >
+                    <i className='fas fa-trash'></i>
+                  </Button>
+                </td>
               </tr>
             ))}
           </tbody>

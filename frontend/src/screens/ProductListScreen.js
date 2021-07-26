@@ -29,6 +29,10 @@ const ProductListScreen = ({ history, match }) => {
     }
   };
 
+  const createProductHandler = (product) => {
+    // CREATE PRODUCT
+  };
+
   return (
     <>
       <Row className='align-items-center'>

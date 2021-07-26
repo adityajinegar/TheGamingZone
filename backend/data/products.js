@@ -20,8 +20,8 @@ const products = [
     category: 'wefewfewf',
     price: 99.99,
     countInStock: 5,
-    rating: 4.9,
-    numReviews: 9,
+    rating: 4.8,
+    numReviews: 8,
   },
   {
     name: 'Camera',
